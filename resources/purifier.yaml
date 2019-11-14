@@ -1,0 +1,23 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: filter-mi
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Edge
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    aqi: "0"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/function: "purifier"
+  probeArgs:
+    - --http-url
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=postGetAirPurifierData&arg=%22%22
+    - --probe-interval
+    - 5s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .aqi;/aqi;int
+

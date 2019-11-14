@@ -1,0 +1,22 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: weight-lexin
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Edge
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    weight: ""
+    io.fusionapp.smarthome/vendor: "lexin"
+    io.fusionapp.smarthome/function: "weight"
+  probeArgs:
+    - --http-url
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&con tractID=LeXinWeight&operation=postTask
+    - --probe-interval
+    - 4s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .weight;/weight;float

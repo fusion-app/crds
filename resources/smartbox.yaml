@@ -1,0 +1,21 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: smartbox-haier
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Edge
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    state: "0"
+  probeArgs:
+    - --http-url
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=HaierSmartBox&operation=postTask&arg=%22%22
+    - --probe-interval
+    - 4s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .data.data.State.value;/state;string
+

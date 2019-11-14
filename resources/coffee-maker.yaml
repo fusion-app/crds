@@ -1,0 +1,31 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: coffee-maker-fudan
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Edge
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    state: "0"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/function: "make-coffee"
+    io.fusionapp.smarthome/owner: "fudan"
+  operation:
+  - name: make-coffee
+    price: 20
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=CoffeeFDU&operation=postMakeCoffee"
+      headers:
+        Accept: "*/*"
+  probeArgs:
+    - --http-url
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=CoffeeFDU&operation=postGetEnvStatus
+    - --probe-interval
+    - 4s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .data.data.State.value;/state;string

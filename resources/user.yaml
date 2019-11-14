@@ -1,0 +1,11 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: user-001
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Human
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    io.fusionapp.human/function: "work"

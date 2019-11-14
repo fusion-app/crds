@@ -1,0 +1,22 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: kettle-mi
+  namespace: fusion-app-resources
+spec:
+  resourceKind: Edge
+  accessMode: Exclusive
+  probeEnabled: false
+  labels:
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/function: "boil-water"
+  operation:
+  - name: boil-water
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=XiaoMiKettle&operation=postTask"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
