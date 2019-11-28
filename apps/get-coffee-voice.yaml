@@ -1,0 +1,23 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: get-coffee-voice
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/get-coffee-voice.png"
+  aliasName: "语音喝咖啡"
+  description: 
+    version: "0.0.2"
+    uploadTime: "2019-11-18 20:05"
+  resourceClaim:
+  - name: make-coffee
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "coffeepot"
+  - name: speak
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "speaker"

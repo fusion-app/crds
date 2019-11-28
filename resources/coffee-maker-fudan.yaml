@@ -1,0 +1,50 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: coffee-maker-fudan
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/coffeepot.png"
+  aliasName: "东菱咖啡机（复旦）"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp/pos: "110"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/type: "coffeepot"
+    io.fusionapp.smarthome/owner: "fudan"
+    io.fusionapp.smarthome/function: "make-coffee"
+    io.fusionapp.smarthome/price: "4"
+    "longitude": "116.327417" 
+    "latitude": "39.993414"
+    "x": "0.0875"
+    "y": "0.8247"
+  operation:
+  - name: make-coffee
+    price: 20
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=CoffeeFDU&operation=postMakeCoffee&arg=%22%22"
+      headers:
+        Accept: "*/*"
+  - name: get-coffee-status
+    price: 10
+    httpAction:
+      action: "GET"
+      url: http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=CoffeeFDU&operation=postGetEnvStatus&arg=%22%22
+      headers:
+        Accept: "*/*"
+  probeArgs:
+    - --http-url
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=CoffeeFDU&operation=postGetEnvStatus&arg=%22%22
+    - --probe-interval
+    - 8s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .data.data.State.value;/io.fusionapp.smarthome.coffeepot~1state;string
+    - --patch-creator
+    - .data.data.keepwarmtime.value;/io.fusionapp.smarthome.coffeepot~1keepwarmtime;string

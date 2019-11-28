@@ -1,0 +1,23 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: get-coffee
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/get-coffee.png"
+  aliasName: "喝咖啡"
+  description: 
+    version: "0.0.1"
+    uploadTime: "2019-11-15 18:05"
+  resourceClaim:
+  - name: make-coffee
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "coffeepot"
+  - name: send-coffee
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp/kind"
+      op: "Eq"
+      value: "crowdsourcing"

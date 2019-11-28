@@ -1,0 +1,17 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: fakeapp-4
+spec:
+  aliasName: "看漫画"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/apps-5.png"
+  description: 
+    version: "0.1.0"
+    uploadTime: "2019-11-08 19:20"
+  resourceClaim:
+  - name: deliver
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp/kind"
+      op: "Eq"
+      value: "crowdsourcing"

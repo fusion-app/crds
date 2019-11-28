@@ -1,0 +1,41 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: exercise-room
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/exercise-room.png"
+  aliasName: "锻炼屋"
+  description: 
+    version: "0.1.0"
+    uploadTime: "2019-11-12 21:10"
+  resourceClaim:
+  - name: get-weight
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "weight"
+  - name: play-keep-video
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "tv"
+  - name: get-air-condition
+    accessMode: Shared
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "smartbox"
+  - name: air-purify
+    accessMode: Shared
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "purifier"
+  - name: boil-water
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "kettle" 

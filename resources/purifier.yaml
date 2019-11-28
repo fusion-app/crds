@@ -1,23 +1,47 @@
 apiVersion: fusionapp.io/v1alpha1
 kind: Resource
 metadata:
-  name: filter-mi
+  name: purifier-mi
   namespace: fusion-app-resources
 spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/purifier.png"
+  aliasName: "小米空气净化器"
   resourceKind: Edge
   accessMode: Exclusive
+  phase: NotReady
   probeEnabled: false
   labels:
-    aqi: "0"
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp/pos: "111"
     io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/type: "purifier"
     io.fusionapp.smarthome/function: "purifier"
+    io.fusionapp.smarthome/price: "3"
+    "longitude": "116.328062"  
+    "latitude": "39.993205"
+    "x": "0.8417"
+    "y": "0.6444"
+  operation:
+  - name: start-purify
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=getAirPurifierData&arg=%22%22"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
   probeArgs:
     - --http-url
-    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=postGetAirPurifierData&arg=%22%22
+    - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=getAirPurifierData&arg=%22%22
     - --probe-interval
     - 5s
     - --http-headers
     - 'Accept: */*;'
+    - --parser
+    - 'PKUAPI'
     - --patch-creator
-    - .aqi;/aqi;int
+    - .aqi;/io.fusionapp.smarthome.purifier~1aqi;int
+    - --patch-creator
+    - .mHumidity;/io.fusionapp.smarthome.purifier~1mHumidity;int
 

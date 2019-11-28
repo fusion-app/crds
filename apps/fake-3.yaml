@@ -1,0 +1,17 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: fakeapp-3
+spec:
+  aliasName: "智能画室"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/apps-4.png"
+  description: 
+    version: "0.0.3"
+    uploadTime: "2019-09-08 18:30"
+  resourceClaim:
+  - name: deliver
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp/kind"
+      op: "Eq"
+      value: "crowdsourcing"

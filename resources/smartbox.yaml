@@ -4,11 +4,33 @@ metadata:
   name: smartbox-haier
   namespace: fusion-app-resources
 spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/smartbox.png"
+  aliasName: "海尔空气盒子"
   resourceKind: Edge
   accessMode: Exclusive
+  phase: NotReady
   probeEnabled: false
   labels:
-    state: "0"
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp/pos: "110"
+    io.fusionapp.smarthome/vendor: "haier"
+    io.fusionapp.smarthome/type: "smartbox"
+    io.fusionapp.smarthome/function: "get-air-condition"
+    io.fusionapp.smarthome/price: "4.5"
+    "longitude": "116.328064"  
+    "latitude": "39.993355" 
+    "x": "0.8403"
+    "y": "0.4247"
+  operation:
+  - name: get-air-condition
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=HaierSmartBox&operation=postTask&arg=%22%22"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
   probeArgs:
     - --http-url
     - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=HaierSmartBox&operation=postTask&arg=%22%22
@@ -16,6 +38,20 @@ spec:
     - 4s
     - --http-headers
     - 'Accept: */*;'
+    - --parser
+    - 'PKUAPI'
     - --patch-creator
-    - .data.data.State.value;/state;string
+    - .air_score;/io.fusionapp.smarthome.smartbox~1air_score;int
+    - --patch-creator
+    - .city_id;/io.fusionapp.smarthome.smartbox~1city_id;string
+    - --patch-creator
+    - .humidity;/io.fusionapp.smarthome.smartbox~1humidity;int
+    - --patch-creator
+    - .pm25;/io.fusionapp.smarthome.smartbox~1pm25;int
+    - --patch-creator
+    - .temperature;/io.fusionapp.smarthome.smartbox~1temperature;int
+    - --patch-creator
+    - .voc;/io.fusionapp.smarthome.smartbox~1voc;int
+    - --patch-creator
+    - .duration;/io.fusionapp.smarthome.smartbox~1duration;int
 

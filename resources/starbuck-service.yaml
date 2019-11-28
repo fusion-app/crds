@@ -1,0 +1,27 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: starbuck-service
+spec:
+  aliasName: "星巴克App"
+  resourceKind: Service
+  accessMode: Exclusive
+  phase: NotReady
+  labels:
+    io.fusionapp/kind: "service"
+    io.fusionapp.service/type: "api"
+    io.fusionapp.service.api/apkPackage: com.starbucks.mobilecard
+    io.fusionapp.service.api/vendor: 手机星巴克
+    io.fusionapp.service.api/vendorCity: 北京
+    io.fusionapp.service.api/version: "5.9.0"
+  operation:
+  - name: order-coffee
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=StarBucks&operation=sendOrder&arg=1"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
+

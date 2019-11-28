@@ -1,0 +1,42 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: tv
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/tv.png"
+  aliasName: "小米电视机"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp/pos: "110"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/type: "tv"
+    io.fusionapp.smarthome/function: "display-offload"
+    io.fusionapp.smarthome/price: "6.5"
+    "longitude": "116.327560"  
+    "latitude": "39.993430"
+    "x": "0.8417"
+    "y": "0.8444"
+  operation:
+  - name: play-video
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=Keep&operation=executeKeep&arg=%22%22"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
+  - name: stop-video
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=Keep&operation=stopKeep&arg=%22%22"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
+

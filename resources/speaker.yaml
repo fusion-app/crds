@@ -1,0 +1,38 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: speaker-mi
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/speaker.svg"
+  aliasName: "小爱音箱"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp/pos: "110"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/type: "speaker"
+    io.fusionapp.smarthome/function: "speak"
+    io.fusionapp.smarthome/price: "8"
+    "longitude": "116.327228"
+    "latitude": "39.993523"
+    "x": "0.6403"
+    "y": "0.6247"
+  operation:
+  - name: speak
+    price: 5
+    httpAction:
+      action: "GET"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=XiaoMiAudio&operation=getAudioInfo&arg=%22%22"
+      qeuery:
+        arg: ""
+      headers:
+        Accept: "*/*"
+  - name: get-order
+    httpAction:
+      action: "GET"
+      url: "https://39.104.154.79:5000/res"
+

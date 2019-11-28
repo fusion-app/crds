@@ -1,0 +1,17 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: fakeapp-2
+spec:
+  aliasName: "便利店跑腿助手"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/apps-3.png"
+  description: 
+    version: "1.2.1"
+    uploadTime: "2019-11-12 12:40"
+  resourceClaim:
+  - name: deliver
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp/kind"
+      op: "Eq"
+      value: "crowdsourcing"

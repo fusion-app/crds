@@ -1,0 +1,30 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: weather-service
+  namespace: fusion-app-resources
+spec:
+  aliasName: "天气预报"
+  resourceKind: Service
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: true
+  labels:
+    io.fusionapp/kind: "service"
+    io.fusionapp.service/vendor: "upyun"
+    io.fusionapp.service/type: "weather"
+  probeImage: "registry.cn-shanghai.aliyuncs.com/fusion-app/http-prober:201911191028-test"
+  probeArgs:
+    - --http-url
+    - http://t.weather.sojson.com/api/weather/city/101030100
+    - --probe-interval
+    - 5s
+    - --http-headers
+    - 'Accept: */*;'
+    - --patch-creator
+    - .data.wendu;/io.fusionapp.service.weather~1temperature;string
+    - --patch-creator
+    - .data.ganmao;/io.fusionapp.service.weather~1notice;string
+    - --patch-creator
+    - .data.shidu;/io.fusionapp.service.weather~1humidity;string
+

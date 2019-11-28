@@ -2,14 +2,13 @@ apiVersion: fusionapp.io/v1alpha1
 kind: FusionApp
 metadata:
   name: example-fusionapp
-  namespace: fusion-app-resources
 spec:
   icon: "test"
-  description: "test"
+  description: 
+    text: "test"
   resourceClaim:
-  - name: weight
-    accessMode: "shared"
+  - name: make-coffee
     selector:
     - key: "io.fusionapp.smarthome/function"
       op: "Eq"
-      value: "weight"
+      value: "make-coffee"

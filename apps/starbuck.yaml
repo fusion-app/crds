@@ -1,0 +1,26 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: FusionApp
+metadata:
+  name: get-starbuck
+spec:
+  aliasName: "喝星巴克咖啡"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/get-starbuck.png"
+  description: 
+    version: "0.0.3"
+    uploadTime: "2019-11-15 13:00"
+  resourceClaim:
+  - name: make-order
+    accessMode: Shared
+    selector:
+    - key: "io.fusionapp.smarthome/type"
+      op: "Eq"
+      value: "speaker"
+  - name: get-starbuck
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp.service/type"
+      op: "Eq"
+      value: "api"
+    - key: "io.fusionapp.service.api/apkPackage"
+      op: "Eq"
+      value: "com.starbucks.mobilecard"
