@@ -4,7 +4,7 @@ metadata:
   name: speaker-mi
   namespace: fusion-app-resources
 spec:
-  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/speaker.svg"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/speaker.png"
   aliasName: "小爱音箱"
   resourceKind: Edge
   accessMode: Exclusive
@@ -12,15 +12,20 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
-    io.fusionapp/pos: "110"
+    io.fusionapp/doi: "86.5000.470/YYDS813_SR159723"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/RY123218,86.5000.470/YYDS813/RY123218"
+    io.fusionapp/pos: "111"
     io.fusionapp.smarthome/vendor: "mi"
     io.fusionapp.smarthome/type: "speaker"
     io.fusionapp.smarthome/function: "speak"
     io.fusionapp.smarthome/price: "8"
-    "longitude": "116.327228"
-    "latitude": "39.993523"
+    "longitude": "116.327639"
+    "latitude": "39.993239"
     "x": "0.6403"
     "y": "0.6247"
+    "3dx": "6.74"
+    "3dy": "2.826"
+    "3dz": "0.689"
   operation:
   - name: speak
     price: 5
@@ -34,5 +39,5 @@ spec:
   - name: get-order
     httpAction:
       action: "GET"
-      url: "https://39.104.154.79:5000/res"
+      url: "https://xiaomi.xuwang.tech/res"
 

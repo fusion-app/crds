@@ -12,6 +12,6 @@ spec:
   - name: deliver
     accessMode: Exclusive
     selector:
-    - key: "io.fusionapp/kind"
+    - key: "io.fusionapp.smarthome/type"
       op: "Eq"
-      value: "crowdsourcing"
+      value: "router"

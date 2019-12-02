@@ -12,15 +12,20 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
-    io.fusionapp/pos: "110"
+    io.fusionapp/pos: "111"
+    io.fusionapp/doi: "86.5000.470/YYDS813_TN177373"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/TY125453,86.5000.470/YYDS813/TY125454,86.5000.470/YYDS813/TY125455,86.5000.470/YYDS813/TY125456,86.5000.470/YYDS813/TY125457,86.5000.470/YYDS813/TY125458"
     io.fusionapp.smarthome/vendor: "mi"
     io.fusionapp.smarthome/type: "tv"
     io.fusionapp.smarthome/function: "display-offload"
     io.fusionapp.smarthome/price: "6.5"
-    "longitude": "116.327560"  
-    "latitude": "39.993430"
+    "longitude": "116.327791"  
+    "latitude": "39.993276"
     "x": "0.8417"
     "y": "0.8444"
+    "3dx": "7.784"
+    "3dy": "2"
+    "3dz": "1.1"
   operation:
   - name: play-video
     price: 5

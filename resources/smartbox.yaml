@@ -12,15 +12,20 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
+    io.fusionapp/doi: "86.5000.470/YYDS813_SB197232"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/SY181982,86.5000.470/YYDS813/SY181983,86.5000.470/YYDS813/SY181984"
     io.fusionapp/pos: "110"
     io.fusionapp.smarthome/vendor: "haier"
     io.fusionapp.smarthome/type: "smartbox"
     io.fusionapp.smarthome/function: "get-air-condition"
     io.fusionapp.smarthome/price: "4.5"
-    "longitude": "116.328064"  
-    "latitude": "39.993355" 
+    "longitude": "116.327415"  
+    "latitude": "39.993231" 
     "x": "0.8403"
     "y": "0.4247"
+    "3dx": "6.903"
+    "3dy": "1.768"
+    "3dz": "0.689"
   operation:
   - name: get-air-condition
     price: 5
@@ -35,7 +40,7 @@ spec:
     - --http-url
     - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=HaierSmartBox&operation=postTask&arg=%22%22
     - --probe-interval
-    - 4s
+    - 20s
     - --http-headers
     - 'Accept: */*;'
     - --parser

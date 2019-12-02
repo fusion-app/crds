@@ -1,0 +1,19 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: station-5g-huawei
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/station_5g.png"
+  aliasName: "5G基站"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp.smarthome/vendor: "huawei"
+    io.fusionapp.smarthome/type: "station_5g"
+    io.fusionapp.smarthome/price: "4.5"
+    "longitude": "116.332343"
+    "latitude": "39.924259"

@@ -1,7 +1,7 @@
 apiVersion: fusionapp.io/v1alpha1
 kind: Resource
 metadata:
-  name: user-001
+  name: human-001
   namespace: fusion-app-resources
 spec:
   aliasName: "众包员工"
@@ -10,18 +10,16 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "crowdsourcing"
-    io.fusionapp/pos: "110"
     io.fusionapp.crowdsourcing/id: "29"
     io.fusionapp.crowdsourcing/phone: "13123234212"
     io.fusionapp.crowdsourcing/province: "江苏"
     "x": "0.8264"
     "y": "0.4272"
   operation:
-  - name: push-notification
-    price: 5
+  - name: get-coffee
     httpAction:
       action: "GET"
-      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=getAirPurifierData&arg=%22%22"
+      url: "http://116.62.172.30/msg?num=13860560456&msg=请去拿咖啡"
       qeuery:
         arg: ""
       headers:

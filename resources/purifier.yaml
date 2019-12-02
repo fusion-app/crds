@@ -12,21 +12,26 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
-    io.fusionapp/pos: "111"
+    io.fusionapp/doi: "86.5000.470/YYDS813_PF127333"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/PD111854,86.5000.470/YYDS813/PD111855"
+    io.fusionapp/pos: "110"
     io.fusionapp.smarthome/vendor: "mi"
     io.fusionapp.smarthome/type: "purifier"
     io.fusionapp.smarthome/function: "purifier"
     io.fusionapp.smarthome/price: "3"
-    "longitude": "116.328062"  
-    "latitude": "39.993205"
+    "longitude": "116.327420"  
+    "latitude": "39.9932495"
     "x": "0.8417"
     "y": "0.6444"
+    "3dx": "7.108"
+    "3dy": "-0.029"
+    "3dz": "0.01"
   operation:
   - name: start-purify
     price: 5
     httpAction:
       action: "GET"
-      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=getAirPurifierData&arg=%22%22"
+      url: "http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=setAirPurifierPower&arg=on"
       qeuery:
         arg: ""
       headers:
@@ -35,7 +40,7 @@ spec:
     - --http-url
     - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=MiPurifier&operation=getAirPurifierData&arg=%22%22
     - --probe-interval
-    - 5s
+    - 8s
     - --http-headers
     - 'Accept: */*;'
     - --parser

@@ -38,4 +38,13 @@ spec:
     selector:
     - key: "io.fusionapp.smarthome/type"
       op: "Eq"
-      value: "kettle" 
+      value: "kettle"
+  - name: get-water
+    accessMode: Exclusive
+    selector:
+    - key: "io.fusionapp/kind"
+      op: "Eq"
+      value: "crowdsourcing"
+    - key: "io.fusionapp.crowdsourcing/job"
+      op: "Eq" 
+      value: "free"

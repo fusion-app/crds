@@ -1,0 +1,19 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: router-mi-006
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/wireless_router.png"
+  aliasName: "小米路由器5G"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/type: "router"
+    io.fusionapp.smarthome/price: "4.5"
+    "longitude": "116.3276055"
+    "latitude": "39.993298"

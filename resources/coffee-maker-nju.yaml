@@ -12,16 +12,21 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
+    io.fusionapp/doi: "86.5000.470/YYDS813_ND289409"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/KD254277,86.5000.470/YYDS813/KD254278,86.5000.470/YYDS813/KD254279,86.5000.470/YYDS813/KD254280"
     io.fusionapp/pos: "110"
-    io.fusionapp.smarthome/vendor: "mi"
+    io.fusionapp.smarthome/vendor: "东菱"
     io.fusionapp.smarthome/type: "coffeepot"
     io.fusionapp.smarthome/owner: "nju"
     io.fusionapp.smarthome/function: "make-coffee"
     io.fusionapp.smarthome/price: "4"
-    "longitude": "116.328355" 
-    "latitude": "39.993255"
-    "x": "0.6744707550349607"
-    "y": "0.5852621514438383"
+    "longitude": "116.327464" 
+    "latitude": "39.99321"
+    "x": "0.7616"
+    "y": "0.1121"
+    "3dx": "-5.268"
+    "3dy": "-0.494"
+    "3dz": "0.689"
   operation:
   - name: make-coffee
     price: 20

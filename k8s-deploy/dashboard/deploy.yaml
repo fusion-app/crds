@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: subject5-dashboard
+spec:
+  type: NodePort
+  selector:
+    app: subject-5
+    component: dashboard
+  ports:
+  - name: nginx
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30580
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subject5-dashboard
+  labels:
+    app: subject-5
+    component: dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: subject-5
+      component: dashboard
+  template:
+    metadata:
+      labels:
+        app: subject-5
+        component: dashboard
+    spec:
+      containers:
+      - name: compute
+        image: registry.cn-shanghai.aliyuncs.com/fusion-app/subject5-dashboard:201911230034
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        ports:
+        - name: nginx
+          containerPort: 80

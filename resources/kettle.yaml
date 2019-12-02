@@ -4,7 +4,7 @@ metadata:
   name: kettle-mi
   namespace: fusion-app-resources
 spec:
-  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/kettle.svg"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/kettle.png"
   aliasName: "小米热水壶"
   resourceKind: Edge
   accessMode: Exclusive
@@ -12,15 +12,20 @@ spec:
   probeEnabled: false
   labels:
     io.fusionapp/kind: "smarthome"
-    io.fusionapp/pos: "111"
+    io.fusionapp/doi: "86.5000.470/YYDS813_KE147633"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/ED150322,86.5000.470/YYDS813/ED150323"
+    io.fusionapp/pos: "110"
     io.fusionapp.smarthome/vendor: "mi"
     io.fusionapp.smarthome/type: "kettle"
     io.fusionapp.smarthome/function: "boil-water"
     io.fusionapp.smarthome/price: "4.5"
-    "longitude": "116.327505"
-    "latitude": "39.993301"
+    "longitude": "116.327643"
+    "latitude": "39.993209"
     "x": "0.1333"
     "y": "0.8247"
+    "3dx": "6.754"
+    "3dy": "0.885"
+    "3dz": "0.689"
   operation:
   - name: boil-water
     price: 5

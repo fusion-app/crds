@@ -1,0 +1,19 @@
+apiVersion: fusionapp.io/v1alpha1
+kind: Resource
+metadata:
+  name: treadmill-keep
+  namespace: fusion-app-resources
+spec:
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/treadmill.png"
+  aliasName: "Keep智能跑步机"
+  resourceKind: Edge
+  accessMode: Exclusive
+  phase: NotReady
+  probeEnabled: false
+  labels:
+    io.fusionapp/kind: "smarthome"
+    io.fusionapp.smarthome/vendor: "keep"
+    io.fusionapp.smarthome/type: "treadmill"
+    io.fusionapp.smarthome/price: "4.5"
+    "longitude": "116.331343"
+    "latitude": "39.913259"

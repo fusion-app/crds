@@ -4,22 +4,27 @@ metadata:
   name: weight-lexin
   namespace: fusion-app-resources
 spec:
-  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/weight.svg"
+  icon: "https://fusion-app-1253221273.cos.ap-shanghai.myqcloud.com/resource/weight.png"
   aliasName: "乐心体重秤"
   resourceKind: Edge
   accessMode: Exclusive
   phase: NotReady
-  probeEnabled: false
+  probeEnabled: true
   labels:
     io.fusionapp/kind: "smarthome"
-    io.fusionapp/pos: "110"
+    io.fusionapp/doi: "86.5000.470/YYDS813_WT106513"
+    io.fusionapp/opRecord: "86.5000.470/YYDS813/TW106513,86.5000.470/YYDS813/TW106514"
+    io.fusionapp/pos: "111"
     io.fusionapp.smarthome/vendor: "lexin"
     io.fusionapp.smarthome/type: "weight"
     io.fusionapp.smarthome/price: "2"
-    "longitude": "116.327438"
-    "latitude": "39.993411"
+    "longitude": "116.327568"
+    "latitude": "39.993279"
     "x": "0.8431"
     "y": "0.5111"
+    "3dx": "7.023"
+    "3dy": "-0.969"
+    "3dz": "0.01"
   operation:
   - name: get-weight
     price: 20
@@ -32,7 +37,7 @@ spec:
     - --http-url
     - http://39.106.6.6:8080/SCIDE/SCManager?action=executeContract&contractID=LeXinWeight&operation=postTask&arg=%22%22
     - --probe-interval
-    - 8s
+    - 4s
     - --http-headers
     - 'Accept: */*;'
     - --parser
